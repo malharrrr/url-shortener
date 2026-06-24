@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>snip — URL Shortener</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Lora:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">sn<em>i</em>p</div>
+  <span class="header-tag">edge · workers · kv</span>
+</header>
+
+<main>
+  <div class="key-bar">
+    <label for="apiKey">API Key</label>
+    <input id="apiKey" type="password" placeholder="Paste your key to unlock the dashboard" autocomplete="off">
+    <span id="keyPill" class="key-pill idle">not set</span>
+  </div>
+
+  <div class="create-card">
+    <div class="card-eyebrow">New link</div>
+    <div class="card-title">Shorten a URL,<br><em>instantly.</em></div>
+
+    <div class="field-group single">
+      <div class="field">
+        <label for="longUrl">Destination URL</label>
+        <input id="longUrl" type="url" placeholder="https://example.com/some/very/long/path">
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field">
+        <label for="customSlug">Custom slug <span style="opacity:.5;font-size:.9em">(optional)</span></label>
+        <input id="customSlug" type="text" placeholder="my-link">
+        <span class="field-hint">Letters, numbers, hyphens, underscores</span>
+      </div>
+    </div>
+
+    <details>
+      <summary>
+        <span class="chevron">▶</span>
+        Advanced options
+      </summary>
+      <div class="advanced-grid">
+        <div class="field">
+          <label for="ttlSeconds">Expires after (seconds)</label>
+          <input id="ttlSeconds" type="number" placeholder="e.g. 86400 for 1 day" min="60">
+          <span class="field-hint">Leave blank for no expiry</span>
+        </div>
+        <div class="field">
+          <label for="password">Password protection</label>
+          <input id="password" type="password" placeholder="Optional passphrase">
+          <span class="field-hint">Visitors must enter this to continue</span>
+        </div>
+      </div>
+    </details>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="createBtn">Shorten →</button>
+      <button class="btn btn-ghost" id="clearBtn">Clear</button>
+    </div>
+
+    <div id="result">
+      <div class="result-label">Your short link — click to copy</div>
+      <div class="result-url" id="resultUrl"></div>
+      <div class="result-meta" id="resultMeta"></div>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <div class="section-title">All links</div>
+    <button class="btn btn-ghost" id="refreshBtn" style="font-size:13px;padding:7px 16px">↻ Refresh</button>
+  </div>
+
+  <div class="table-card" id="tableCard">
+    <div class="empty" id="emptyState">
+      <div class="empty-icon">🔑</div>
+      <p>Enter your <strong>API key</strong> above<br>to load your links.</p>
+    </div>
+  </div>
+
+</main>
+
+<div id="toast"></div>
+
+<script src="/app.js"></script>
+</body>
+</html>
