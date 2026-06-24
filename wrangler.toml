@@ -1,0 +1,15 @@
+name = "url-shortener"
+main = "src/worker.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[site]
+bucket = "./public"
+
+[[kv_namespaces]]
+binding = "URLS"
+id = "62e7e5be9cbb493ca322c5fb14cb4531"
+preview_id = "2ed33e6a8b054f119426b98d4f7b4c20"
+
+[vars]
+ENVIRONMENT = "development"
