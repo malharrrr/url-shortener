@@ -1,0 +1,18 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev":        "wrangler dev",
+    "deploy":     "wrangler deploy",
+    "tail":       "wrangler tail",
+    "kv:list":    "wrangler kv key list --binding=URLS",
+    "secret:set": "wrangler secret put API_KEY"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.3.4"
+  }
+}
